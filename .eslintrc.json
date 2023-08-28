@@ -39,6 +39,10 @@
           [
             "@base",
             "./src/common/base"
+          ],
+          [
+            "@store",
+            "./src/store"
           ]
         ],
         "extensions": [
