@@ -9,13 +9,16 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/fs-extra": "^11.0.1",
     "@types/node": "^20.5.6",
+    "@types/readline-sync": "^1.4.4",
     "eslint": "^8.47.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-node": "^4.1.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "fs-extra": "^11.1.1",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.0",
     "nodemon": "^3.0.1",
@@ -23,5 +26,8 @@
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
   }
 }
