@@ -21,5 +21,21 @@
       "no-plusplus": "off",
       "no-process-exit": "off",
       "class-methods-use-this": "off"
+    },
+    "settings": {
+      "import/resolver": {
+        "alias": {
+          "map": [
+            [
+              "@app",
+              "./src"
+            ] 
+          ],
+          "extensions": [
+            ".ts",
+            ".tsx"
+          ]
+        }
+      }
     }
   }
