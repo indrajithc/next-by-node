@@ -1,6 +1,6 @@
 .vscode
 
-config.json
+*.config.json
 
 dist/**/*.js
 dist/**/*.map

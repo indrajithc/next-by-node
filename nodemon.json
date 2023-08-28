@@ -5,7 +5,7 @@
   "ext": "ts,json",
   "ignore": [
     "src/**/*.spec.ts",
-    "config.json"
+    "*.config.json"
   ],
-  "exec": "ts-node ./src/index.ts"
+  "exec": "rm -rf ./dist && ts-node ./src/index.ts"
 }
