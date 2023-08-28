@@ -1,6 +1,7 @@
 .vscode
 
 *.config.json
+output/*
 
 dist/**/*.js
 dist/**/*.map
