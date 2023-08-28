@@ -6,6 +6,9 @@
     "paths": {
       "@app/*": [
         "./src/*"
+      ],
+      "@base/*": [
+        "./src/common/base/*"
       ]
     }
   },
