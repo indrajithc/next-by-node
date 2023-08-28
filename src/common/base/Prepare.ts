@@ -14,6 +14,7 @@ import { exit } from "process";
 
 const prepareConfiguration = () => {
   const configJson = JSON.stringify(config);
+  /** Update this json for dynamic config on run time */
   fs.writeFileSync(path.join(config.rootDir, systemConstants.CONFIG_JSON), configJson);
 };
 
