@@ -1,0 +1,81 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@widgets/*": [
+        "./src/widgets/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@api/*": [
+        "./src/api/*"
+      ],
+      "@components/*": [
+        "./src/common/components/*"
+      ],
+      "@skeletons/*": [
+        "./src/common/skeletons/*"
+      ],
+      "@context/*": [
+        "./src/common/context/*"
+      ],
+      "@hooks/*": [
+        "./src/common/hooks/*"
+      ],
+      "@core/*": [
+        "./src/common/core/*"
+      ],
+      "@icons/*": [
+        "./src/common/core/icons/*"
+      ],
+      "@themes/*": [
+        "./src/common/themes/*"
+      ],
+      "@lib/*": [
+        "./src/common/lib/*"
+      ],
+      "@i18n/*": [
+        "./src/i18n/*"
+      ],
+      "@app/*": [
+        "./src/*"
+      ],
+      "@mocks/*": [
+        "./__mocks__/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "libs/dev/FileBase.mjs"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "name": "app",
+  "assetsDir": "next-app-boilerplate/data",
+  "children": [
+    {
+      "name": "tsconfig.json",
+      "content": "",
+      "contentPath": "./tsconfig.json.txt"
+    },
+    {
+      "name": "README.md",
+      "content": "",
+      "contentPath": "./README.md"
+    },
+    {
+      "name": "postcss.config.js",
+      "content": "",
+      "contentPath": "./postcss.config.js.txt"
+    },
+    {
+      "name": "src",
+      "isDirectory": true,
+      "children": [
+        {
+          "name": "api",
+          "isDirectory": true
+        },
+        {
+          "name": "app",
+          "isDirectory": true,
+          "children": [
+            {
+              "name": "page.tsx",
+              "content": "",
+              "contentPath": "./src/app/page.tsx.txt"
+            },
+            {
+              "name": "layout.tsx",
+              "content": "",
+              "contentPath": "./src/app/layout.tsx.txt"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
