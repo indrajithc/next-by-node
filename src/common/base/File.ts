@@ -13,10 +13,11 @@ class File {
   workingDirectoryBase: string;
   directory: string;
   name: string;
+  content: string;
 
   constructor(
     protected readonly filePath: string,
-    content?: string
+    fileContent?: string
   ) {
     const config = getAppConfig();
     this.workingDirectoryBase = config.outputDir;
@@ -24,19 +25,31 @@ class File {
     this.filePath = path.join(this.workingDirectoryBase, filePath);
     this.directory = path.dirname(this.filePath);
     this.name = path.basename(this.filePath);
+    this.content = fileContent || "";
 
-    if (!this.isFileExists()) {
-      fs.writeFileSync(this.filePath, content || "");
+    if (!File.isFileExists(this.filePath)) {
+      fs.writeFileSync(this.filePath, fileContent || "");
+    } else {
+      this.content = File.readFile(this.filePath);
     }
   }
 
-  isFileExists() {
+  static isFileExists(filePath: string) {
     try {
-      return fs.existsSync(this.filePath);
+      return fs.existsSync(filePath);
     } catch (error) {
       console.error(error);
       return false;
     }
+  }
+
+  static readFile(filePath: string) {
+    const dataContent = fs.readFileSync(filePath);
+    return dataContent.toString();
+  }
+
+  getContent() {
+    return this.content;
   }
 
   createFile() {}
