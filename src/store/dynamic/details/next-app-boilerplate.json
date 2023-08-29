@@ -1,0 +1,6 @@
+{
+  "global": {
+    "next-ecommerce": "next-app",
+    "localhost": "127.0.0.1"
+  }
+}
