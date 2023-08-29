@@ -112,6 +112,14 @@
       "relativeDirectory": "./next.config.js.txt"
     },
     {
+      "name": "package-lock.json",
+      "relativeDirectory": "./package-lock.json.txt"
+    },
+    {
+      "name": "package.json",
+      "relativeDirectory": "./package.json.txt"
+    },
+    {
       "name": "tsconfig.json",
       "relativeDirectory": "./tsconfig.json.txt"
     },
