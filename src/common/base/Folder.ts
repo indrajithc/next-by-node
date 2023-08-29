@@ -13,7 +13,7 @@ import { getAppConfig } from "@app/appConfig";
 type FolderChildrenConfiguration = {
   name: string;
   content?: string;
-  contentPath?: string;
+  relativeDirectory: string;
   isDirectory?: boolean;
   children?: FolderChildrenConfiguration[];
 };
@@ -21,6 +21,7 @@ type FolderChildrenConfiguration = {
 type Configuration = {
   assetsDir: string;
   name: string;
+  relativeDirectory: string;
   children: FolderChildrenConfiguration[];
 };
 
@@ -42,20 +43,21 @@ class Folder {
   }
 
   process(folderConfiguration: FolderChildrenConfiguration) {
-    const { name, children, isDirectory, content, contentPath } = folderConfiguration;
+    const { name, children, isDirectory, content, relativeDirectory } = folderConfiguration;
 
     if (isDirectory || Array.isArray(children)) {
       new Directory(name);
       if (Array.isArray(children)) {
         children.forEach((child) => {
           const pathname = path.join(name, child.name);
-          this.process({ ...child, name: pathname });
+          const directory = path.join(relativeDirectory, child.relativeDirectory);
+          this.process({ ...child, name: pathname, relativeDirectory: directory });
         });
       }
     } else {
       let dataContent = content;
-      if (!content && contentPath) {
-        const contentFilePath = path.join(this.assetDirectory, contentPath);
+      if (!content && relativeDirectory) {
+        const contentFilePath = path.join(this.assetDirectory, relativeDirectory);
         if (File.isFileExists(contentFilePath)) {
           dataContent = File.readFile(contentFilePath);
         }
@@ -65,8 +67,8 @@ class Folder {
   }
 
   initiate() {
-    const { name, children } = this.configuration;
-    this.process({ children, name });
+    const { name, relativeDirectory, children } = this.configuration;
+    this.process({ children, name, relativeDirectory });
   }
 }
 
