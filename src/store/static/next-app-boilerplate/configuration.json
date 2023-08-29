@@ -127,10 +127,12 @@
     {
       "name": "libs",
       "isDirectory": true,
+      "relativeDirectory": "./libs",
       "children": [
         {
           "name": "dev",
-          "isDirectory": true
+          "isDirectory": true,
+          "relativeDirectory": "./dev"
         }
       ]
     },
@@ -152,6 +154,7 @@
             {
               "name": "images",
               "isDirectory": true,
+              "relativeDirectory": "./images",
               "children": [
                 {
                   "name": "image-svg-126X23.svg",
