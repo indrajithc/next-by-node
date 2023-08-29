@@ -75,6 +75,52 @@
       ]
     },
     {
+      "name": "cypress",
+      "isDirectory": true,
+      "relativeDirectory": "./cypress",
+      "children": [
+        {
+          "name": "downloads",
+          "isDirectory": true,
+          "relativeDirectory": "./downloads"
+        },
+        {
+          "name": "fixtures",
+          "isDirectory": true,
+          "relativeDirectory": "./fixtures",
+          "children": [
+            {
+              "name": "example.json",
+              "relativeDirectory": "./example.json.txt"
+            }
+          ]
+        },
+        {
+          "name": "support",
+          "isDirectory": true,
+          "relativeDirectory": "./support",
+          "children": [
+            {
+              "name": "commands.ts",
+              "relativeDirectory": "./commands.ts.txt"
+            },
+            {
+              "name": "component-index.html",
+              "relativeDirectory": "component-index.html.txt"
+            },
+            {
+              "name": "component.ts",
+              "relativeDirectory": "./component.ts.txt"
+            },
+            {
+              "name": "e2e.ts",
+              "relativeDirectory": "./e2e.ts.txt"
+            }
+          ]
+        }
+      ]
+    }
+    {
       "name": "src",
       "isDirectory": true,
       "relativeDirectory": "./src",
