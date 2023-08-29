@@ -6,6 +6,7 @@ import path from "path";
 
 import Directory from "@base/Directory";
 import File from "@base/File";
+import Progress from "@base/Progress";
 
 import config from "@app/config";
 import { getAppConfig } from "@app/appConfig";
@@ -40,6 +41,7 @@ class Folder {
   assetDirectory: string;
   outputDir: string;
   dynamicData?: FolderDynamicData;
+  progress: Progress;
 
   constructor(
     readonly configuration: Configuration,
@@ -48,6 +50,7 @@ class Folder {
     const rootDir = config.rootDir;
     const appConfig = getAppConfig();
 
+    this.progress = new Progress(69);
     this.outputDir = appConfig.outputDir;
     this.assetDirectory = path.join(rootDir, options.assetPath || "", this.configuration.assetsDir);
     this.dynamicData = options.dynamicData;
@@ -99,7 +102,9 @@ class Folder {
 
   initiate() {
     const { name, relativeDirectory, children } = this.configuration;
+    this.progress.start();
     this.process({ children, name, relativeDirectory });
+    this.progress.stop();
   }
 }
 
