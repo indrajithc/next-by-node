@@ -16,21 +16,19 @@ class Progress {
 
   goto(percentage: number) {
     rdl.cursorTo(process.stdout, this.cursor);
-    if (this.timer) {
-      clearTimeout(this.timer);
-    }
-    this.timer = setInterval(() => {
-      const size = this.size * (percentage / 100);
-      process.stdout.write("\u2588");
-      this.cursor++;
+    const size = this.size * (percentage / 100);
 
-      if (this.cursor >= size) {
-        clearTimeout(this.timer);
-        if (this.cursor >= this.size) {
-          process.stdout.write("\n");
-        }
-      }
-    }, 5);
+    let count = this.cursor;
+
+    while (count < size) {
+      process.stdout.write("\u2588");
+      count++;
+    }
+    this.cursor = count;
+
+    if (this.cursor >= this.size) {
+      process.stdout.write("\n");
+    }
   }
 
   start() {
