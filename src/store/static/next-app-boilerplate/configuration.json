@@ -96,6 +96,10 @@
       "relativeDirectory": "./.stylelintrc.json.txt"
     },
     {
+      "name": "config.js",
+      "relativeDirectory": "./config.js.txt"
+    },
+    {
       "name": "tsconfig.json",
       "relativeDirectory": "./tsconfig.json.txt"
     },
