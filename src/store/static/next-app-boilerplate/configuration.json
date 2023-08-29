@@ -64,6 +64,17 @@
       ]
     },
     {
+      "name": "config",
+      "isDirectory": true,
+      "relativeDirectory": "./config",
+      "children": [
+        {
+          "name": "default.json",
+          "relativeDirectory": "./default.json.txt"
+        }
+      ]
+    },
+    {
       "name": "src",
       "isDirectory": true,
       "relativeDirectory": "./src",
