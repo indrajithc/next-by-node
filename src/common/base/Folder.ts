@@ -25,31 +25,58 @@ type Configuration = {
   children: FolderChildrenConfiguration[];
 };
 
+type FolderDynamicData = {
+  global: {
+    [key: string]: string;
+  };
+};
+
+type FolderOptions = {
+  assetPath?: string;
+  dynamicData?: FolderDynamicData;
+};
+
 class Folder {
   assetDirectory: string;
   outputDir: string;
+  dynamicData?: FolderDynamicData;
 
   constructor(
     readonly configuration: Configuration,
-    readonly options: { assetPath?: string }
+    readonly options: FolderOptions
   ) {
     const rootDir = config.rootDir;
     const appConfig = getAppConfig();
 
     this.outputDir = appConfig.outputDir;
     this.assetDirectory = path.join(rootDir, options.assetPath || "", this.configuration.assetsDir);
-
+    this.dynamicData = options.dynamicData;
     this.initiate();
   }
 
+  replaceContent(input?: string): string {
+    let dataContent = input;
+    try {
+      const dynamicDataMap = this.dynamicData?.global || {};
+      if (Object.keys(dynamicDataMap).length > 0) {
+        Object.keys(dynamicDataMap).forEach((each) => {
+          dataContent = dataContent?.replaceAll(each, dynamicDataMap[each]);
+        });
+      }
+    } catch (error) {}
+    return dataContent || "";
+  }
+
   process(folderConfiguration: FolderChildrenConfiguration) {
-    const { name, children, isDirectory, content, relativeDirectory } = folderConfiguration;
+    const { name: originalName, children, isDirectory, content, relativeDirectory } = folderConfiguration;
+
+    const name = this.replaceContent(originalName);
 
     if (isDirectory || Array.isArray(children)) {
       new Directory(name);
       if (Array.isArray(children)) {
         children.forEach((child) => {
-          const pathname = path.join(name, child.name);
+          const pathname = path.join(originalName, child.name);
           const directory = path.join(relativeDirectory, child.relativeDirectory);
           this.process({ ...child, name: pathname, relativeDirectory: directory });
         });
@@ -62,9 +89,13 @@ class Folder {
           dataContent = File.readFile(contentFilePath);
         }
       }
+
+      dataContent = this.replaceContent(dataContent);
       new File(name, dataContent);
     }
   }
+
+  testFolderStructure() {}
 
   initiate() {
     const { name, relativeDirectory, children } = this.configuration;
