@@ -1,11 +1,12 @@
 {
   "name": "app",
-  "assetsDir": "next-app-boilerplate/data",
+  "assetsDir": "next-app-boilerplate",
+  "relativeDirectory": "./data",
   "children": [
     {
       "name": ".husky",
       "isDirectory": true,
-      "relativeDirectory": "./husky",
+      "relativeDirectory": "./.husky",
       "children": [
         {
           "name": "pre-commit",
@@ -31,7 +32,7 @@
     {
       "name": ".storybook",
       "isDirectory": true,
-      "relativeDirectory": "./storybook",
+      "relativeDirectory": "./.storybook",
       "children": [
         {
           "name": "main.ts",
@@ -46,7 +47,7 @@
     {
       "name": ".vscode",
       "isDirectory": true,
-      "relativeDirectory": "./vscode",
+      "relativeDirectory": "./.vscode",
       "children": [
         {
           "name": "extensions.json",
@@ -77,6 +78,7 @@
     {
       "name": "src",
       "isDirectory": true,
+      "relativeDirectory": "./src",
       "children": [
         {
           "name": "api",
