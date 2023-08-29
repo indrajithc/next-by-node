@@ -64,6 +64,10 @@
       ]
     },
     {
+      "name": ".env",
+      "relativeDirectory": "./.env.txt"
+    },
+    {
       "name": "tsconfig.json",
       "relativeDirectory": "./tsconfig.json.txt"
     },
