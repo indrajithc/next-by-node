@@ -76,6 +76,14 @@
       "relativeDirectory": "./.gitignore.txt"
     },
     {
+      "name": ".prettierignore",
+      "relativeDirectory": "./.prettierignore.txt"
+    },
+    {
+      "name": ".prettierrc",
+      "relativeDirectory": "./.prettierrc.txt"
+    },
+    {
       "name": ".gitignore",
       "relativeDirectory": "./.gitignore.txt"
     },
