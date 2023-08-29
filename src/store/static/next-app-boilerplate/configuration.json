@@ -104,6 +104,10 @@
       "relativeDirectory": "./cypress.config.ts.txt"
     },
     {
+      "name": "next-env.d.ts",
+      "relativeDirectory": "./next-env.d.ts.txt"
+    },
+    {
       "name": "tsconfig.json",
       "relativeDirectory": "./tsconfig.json.txt"
     },
