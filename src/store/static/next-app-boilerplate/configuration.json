@@ -69,7 +69,7 @@
     },
     {
       "name": "README.md",
-      "relativeDirectory": "./README.md"
+      "relativeDirectory": "./README.md.txt"
     },
     {
       "name": "postcss.config.js",
