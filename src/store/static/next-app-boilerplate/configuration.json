@@ -3,19 +3,76 @@
   "assetsDir": "next-app-boilerplate/data",
   "children": [
     {
+      "name": ".husky",
+      "isDirectory": true,
+      "relativeDirectory": "./husky",
+      "children": [
+        {
+          "name": "pre-commit",
+          "relativeDirectory": "./pre-commit.txt"
+        },
+        {
+          "name": "_",
+          "isDirectory": true,
+          "relativeDirectory": "./_",
+          "children": [
+            {
+              "name": ".gitignore",
+              "relativeDirectory": "./.gitignore.txt"
+            },
+            {
+              "name": "husky.sh",
+              "relativeDirectory": "./husky.sh.txt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": ".storybook",
+      "isDirectory": true,
+      "relativeDirectory": "./storybook",
+      "children": [
+        {
+          "name": "main.ts",
+          "relativeDirectory": "./main.ts.txt"
+        },
+        {
+          "name": "preview.ts",
+          "relativeDirectory": "./preview.ts.txt"
+        }
+      ]
+    },
+    {
+      "name": ".vscode",
+      "isDirectory": true,
+      "relativeDirectory": "./vscode",
+      "children": [
+        {
+          "name": "extensions.json",
+          "relativeDirectory": "./extensions.json.txt"
+        },
+        {
+          "name": "launch.json",
+          "relativeDirectory": "./launch.json.txt"
+        },
+        {
+          "name": "settings.json",
+          "relativeDirectory": "./settings.json.txt"
+        }
+      ]
+    },
+    {
       "name": "tsconfig.json",
-      "content": "",
-      "contentPath": "./tsconfig.json.txt"
+      "relativeDirectory": "./tsconfig.json.txt"
     },
     {
       "name": "README.md",
-      "content": "",
-      "contentPath": "./README.md"
+      "relativeDirectory": "./README.md"
     },
     {
       "name": "postcss.config.js",
-      "content": "",
-      "contentPath": "./postcss.config.js.txt"
+      "relativeDirectory": "./postcss.config.js.txt"
     },
     {
       "name": "src",
@@ -23,21 +80,21 @@
       "children": [
         {
           "name": "api",
-          "isDirectory": true
+          "isDirectory": true,
+          "relativeDirectory": "./api"
         },
         {
           "name": "app",
           "isDirectory": true,
+          "relativeDirectory": "./app",
           "children": [
             {
               "name": "page.tsx",
-              "content": "",
-              "contentPath": "./src/app/page.tsx.txt"
+              "relativeDirectory": "./page.tsx.txt"
             },
             {
               "name": "layout.tsx",
-              "content": "",
-              "contentPath": "./src/app/layout.tsx.txt"
+              "relativeDirectory": "./layout.tsx.txt"
             }
           ]
         }
