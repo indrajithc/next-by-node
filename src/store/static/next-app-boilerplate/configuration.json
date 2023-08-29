@@ -135,6 +135,43 @@
       ]
     },
     {
+      "name": "public",
+      "isDirectory": true,
+      "relativeDirectory": "./public",
+      "children": [
+        {
+          "name": "css",
+          "isDirectory": true,
+          "relativeDirectory": "./scs"
+        },
+        {
+          "name": "dummy",
+          "isDirectory": true,
+          "relativeDirectory": "./dummy",
+          "children": [
+            {
+              "name": "images",
+              "isDirectory": true,
+              "children": [
+                {
+                  "name": "image-svg-126X23.svg",
+                  "relativeDirectory": "./image-svg-126X23.svg.txt"
+                },
+                {
+                  "name": "image-svg-172x30.svg",
+                  "relativeDirectory": "./image-svg-172x30.svg.txt"
+                },
+                {
+                  "name": "image-svg-500x500.svg",
+                  "relativeDirectory": "./image-svg-500x500.svg.txt"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "src",
       "isDirectory": true,
       "relativeDirectory": "./src",
