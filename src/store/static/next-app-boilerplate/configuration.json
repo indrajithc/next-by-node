@@ -117,6 +117,10 @@
               "relativeDirectory": "./e2e.ts.txt"
             }
           ]
+        },
+        {
+          "name": "tsconfig.json",
+          "relativeDirectory": "./tsconfig.json.txt"
         }
       ]
     }
