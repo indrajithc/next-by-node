@@ -72,6 +72,14 @@
       "relativeDirectory": "./.eslintrc.txt"
     },
     {
+      "name": ".gitignore",
+      "relativeDirectory": "./.gitignore.txt"
+    },
+    {
+      "name": ".gitignore",
+      "relativeDirectory": "./.gitignore.txt"
+    },
+    {
       "name": "tsconfig.json",
       "relativeDirectory": "./tsconfig.json.txt"
     },
