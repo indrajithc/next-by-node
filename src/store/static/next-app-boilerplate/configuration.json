@@ -88,6 +88,14 @@
       "relativeDirectory": "./.gitignore.txt"
     },
     {
+      "name": ".stylelintignore",
+      "relativeDirectory": "./.stylelintignore.txt"
+    },
+    {
+      "name": ".stylelintrc.json",
+      "relativeDirectory": "./.stylelintrc.json.txt"
+    },
+    {
       "name": "tsconfig.json",
       "relativeDirectory": "./tsconfig.json.txt"
     },
