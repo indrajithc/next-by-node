@@ -64,6 +64,33 @@
       ]
     },
     {
+      "name": "src",
+      "isDirectory": true,
+      "relativeDirectory": "./src",
+      "children": [
+        {
+          "name": "api",
+          "isDirectory": true,
+          "relativeDirectory": "./api"
+        },
+        {
+          "name": "app",
+          "isDirectory": true,
+          "relativeDirectory": "./app",
+          "children": [
+            {
+              "name": "page.tsx",
+              "relativeDirectory": "./page.tsx.txt"
+            },
+            {
+              "name": "layout.tsx",
+              "relativeDirectory": "./layout.tsx.txt"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": ".env",
       "relativeDirectory": "./.env.txt"
     },
@@ -130,33 +157,6 @@
     {
       "name": "postcss.config.js",
       "relativeDirectory": "./postcss.config.js.txt"
-    },
-    {
-      "name": "src",
-      "isDirectory": true,
-      "relativeDirectory": "./src",
-      "children": [
-        {
-          "name": "api",
-          "isDirectory": true,
-          "relativeDirectory": "./api"
-        },
-        {
-          "name": "app",
-          "isDirectory": true,
-          "relativeDirectory": "./app",
-          "children": [
-            {
-              "name": "page.tsx",
-              "relativeDirectory": "./page.tsx.txt"
-            },
-            {
-              "name": "layout.tsx",
-              "relativeDirectory": "./layout.tsx.txt"
-            }
-          ]
-        }
-      ]
     }
   ]
 }
