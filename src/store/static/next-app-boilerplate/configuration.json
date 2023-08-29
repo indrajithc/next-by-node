@@ -68,6 +68,10 @@
       "relativeDirectory": "./.env.txt"
     },
     {
+      "name": ".eslintrc",
+      "relativeDirectory": "./.eslintrc.txt"
+    },
+    {
       "name": "tsconfig.json",
       "relativeDirectory": "./tsconfig.json.txt"
     },

@@ -1,0 +1,248 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:react/recommended",
+    "plugin:json/recommended",
+    "plugin:cypress/recommended",
+    "plugin:storybook/recommended",
+    "prettier"
+  ],
+  "globals": {
+    "React": "readonly",
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "unused-imports",
+    "prettier",
+    "html"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "packageDir": ".",
+        "devDependencies": [
+          "**/jest.*",
+          "**/*.test.[jt]s?(x)",
+          "**/*.spec.[jt]s?(x)",
+          "**/*.cy.[jt]s?(x)",
+          "**/*.stories.[jt]s?(x)",
+          "**/test-libs/**",
+          "**/__mocks__/**",
+          "**/cypress.*",
+          "**/cypress/**"
+        ]
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "import/prefer-default-export": "warn",
+    "react/forbid-prop-types": "warn",
+    "unused-imports/no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "max-len": [
+      "warn",
+      {
+        "code": 160
+      }
+    ],
+    "react/jsx-props-no-spreading": "off",
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "warn",
+          "error",
+          "info",
+          "table"
+        ]
+      }
+    ],
+    "no-empty": [
+      "error",
+      {
+        "allowEmptyCatch": true
+      }
+    ],
+    "consistent-return": [
+      "warn",
+      {
+        "treatUndefinedAsUnspecified": false
+      }
+    ],
+    "react/no-array-index-key": [
+      "warn"
+    ],
+    "jsx-a11y/anchor-is-valid": [
+      "warn",
+      {
+        "components": [
+          "Link",
+          "a"
+        ],
+        "aspects": [
+          "invalidHref",
+          "preferButton"
+        ]
+      }
+    ],
+    "no-eval": "warn",
+    "class-methods-use-this": [
+      "error",
+      {
+        "enforceForClassFields": false
+      }
+    ],
+    "no-useless-escape": "warn",
+    "camelcase": "warn",
+    "react/no-unknown-property": "warn",
+    /* Custom rules */
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "moment",
+            "message": "Instead of using moment use native methods."
+          }
+        ],
+        "patterns": [
+          {
+            "group": [
+              "react-toastify",
+              "toast",
+              "@utils/toast"
+            ],
+            "message": "Instead of using toast use useToast() from `@hooks/useToast`"
+          }
+        ]
+      }
+    ],
+    "no-restricted-properties": [
+      2,
+      {
+        "object": "window",
+        "property": "dataLayer",
+        "message": "Please use `analyticsWorker` for any dataLayer updates"
+      }
+    ]
+  },
+  "overrides": [
+    // Only uses Testing Library lint rules in test files
+    {
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        // "**/__stories__/**/*.[jt]s?(x)",
+        // "*.stories.@(ts|tsx|js|jsx|mjs|cjs)",
+        "**/?(*.)+(spec|test).[jt]s?(x)",
+        "**/?(*.)+(cy).[jt]s?(x)"
+      ],
+      "extends": []
+    },
+    {
+      "files": [
+        "**/*.stories.[jt]s?(x)",
+        "**/utils/**",
+        "**/common/*.[jt]s?(x)"
+      ],
+      "rules": {
+        "no-restricted-imports": "warn"
+      }
+    },
+    {
+      "files": [
+        "**/utils/**",
+        "**/common/*.[jt]s?(x)"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          [
+            "@widgets",
+            "./src/widgets"
+          ],
+          [
+            "@utils",
+            "./src/utils"
+          ],
+          [
+            "@api",
+            "./src/api"
+          ],
+          [
+            "@components",
+            "./src/common/components"
+          ],
+          [
+            "@skeletons",
+            "./src/common/skeletons"
+          ],
+          [
+            "@context",
+            "./src/common/context"
+          ],
+          [
+            "@hooks",
+            "./src/common/hooks"
+          ],
+          [
+            "@core",
+            "./src/common/core"
+          ],
+          [
+            "@icons",
+            "./src/common/core/icons"
+          ],
+          [
+            "@themes",
+            "./src/common/themes"
+          ],
+          [
+            "@lib",
+            "./src/common/lib"
+          ],
+          [
+            "@i18n",
+            "./src/i18n"
+          ],
+          [
+            "@app",
+            "./src"
+          ],
+          [
+            "@mocks",
+            "./__mocks__"
+          ]
+        ],
+        "extensions": [
+          ".ts",
+          ".tsx"
+        ]
+      }
+    }
+  }
+}
