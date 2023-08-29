@@ -108,6 +108,10 @@
       "relativeDirectory": "./next-env.d.ts.txt"
     },
     {
+      "name": "next.config.js",
+      "relativeDirectory": "./next.config.js.txt"
+    },
+    {
       "name": "tsconfig.json",
       "relativeDirectory": "./tsconfig.json.txt"
     },
