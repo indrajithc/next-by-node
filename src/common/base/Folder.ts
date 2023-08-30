@@ -8,24 +8,25 @@ import Directory from "@base/Directory";
 import File from "@base/File";
 import Progress from "@base/Progress";
 import Page from "@base/Page";
+import FolderBase from "@base/FolderBase";
 
 import config from "@app/config";
 import { getAppConfig } from "@app/appConfig";
 
-import { FolderDynamicData, FolderConfiguration, FolderOptions, FolderChildrenConfiguration, DynamicModules } from "@lib/types";
+import { FolderConfiguration, FolderOptions, FolderChildrenConfiguration, DynamicModules } from "@lib/types";
 
-class Folder {
+class Folder extends FolderBase {
   configuration: FolderConfiguration;
   dynamicModules?: DynamicModules;
   assetDirectory: string;
   outputDir: string;
-  dynamicData?: FolderDynamicData;
   progress: Progress;
 
   constructor(
     readonly payload: { configuration: FolderConfiguration; dynamicModules?: DynamicModules },
     readonly options: FolderOptions
   ) {
+    super(options.dynamicData);
     const rootDir = config.rootDir;
     const appConfig = getAppConfig();
 
@@ -34,21 +35,7 @@ class Folder {
     this.progress = new Progress(69);
     this.outputDir = appConfig.outputDir;
     this.assetDirectory = path.join(rootDir, options.assetPath || "", this.configuration.assetsDir);
-    this.dynamicData = options.dynamicData;
     this.initiate();
-  }
-
-  replaceContent(input?: string): string {
-    let dataContent = input;
-    try {
-      const dynamicDataMap = this.dynamicData?.global || {};
-      if (Object.keys(dynamicDataMap).length > 0) {
-        Object.keys(dynamicDataMap).forEach((each) => {
-          dataContent = dataContent?.replaceAll(each, dynamicDataMap[each]);
-        });
-      }
-    } catch (error) {}
-    return dataContent || "";
   }
 
   process(folderConfiguration: FolderChildrenConfiguration) {

@@ -5,13 +5,13 @@ import path from "path";
 
 import Directory from "@base/Directory";
 import File from "@base/File";
+import FolderBase from "@base/FolderBase";
 
 import { DynamicModule, PageDirectory, FolderDynamicData, DynamicModuleHandlers } from "@lib/types";
 
-class Page {
+class Page extends FolderBase {
   directory: PageDirectory[];
   assetDirectory: string;
-  dynamicData?: FolderDynamicData;
   handlers: DynamicModuleHandlers;
 
   constructor(
@@ -20,6 +20,7 @@ class Page {
     readonly module: DynamicModule,
     readonly options: { assetDirectory: string; dynamicData?: FolderDynamicData }
   ) {
+    super(options?.dynamicData);
     if (!module) {
       throw new Error("Module missing");
     }
@@ -29,20 +30,7 @@ class Page {
     this.directory = configuration.directory as PageDirectory[];
     this.handlers = handlers;
     this.assetDirectory = options?.assetDirectory;
-    this.dynamicData = options?.dynamicData;
     this.initiate();
-  }
-  replaceContent(input?: string): string {
-    let dataContent = input;
-    try {
-      const dynamicDataMap = this.dynamicData?.global || {};
-      if (Object.keys(dynamicDataMap).length > 0) {
-        Object.keys(dynamicDataMap).forEach((each) => {
-          dataContent = dataContent?.replaceAll(each, dynamicDataMap[each]);
-        });
-      }
-    } catch (error) {}
-    return dataContent || "";
   }
 
   process(pageDirectory: PageDirectory) {
