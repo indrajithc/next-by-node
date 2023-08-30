@@ -12,21 +12,25 @@ import Page from "@base/Page";
 import config from "@app/config";
 import { getAppConfig } from "@app/appConfig";
 
-import { FolderDynamicData, FolderConfiguration, FolderOptions, FolderChildrenConfiguration } from "@lib/types";
+import { FolderDynamicData, FolderConfiguration, FolderOptions, FolderChildrenConfiguration, DynamicModules } from "@lib/types";
 
 class Folder {
+  configuration: FolderConfiguration;
+  dynamicModules?: DynamicModules;
   assetDirectory: string;
   outputDir: string;
   dynamicData?: FolderDynamicData;
   progress: Progress;
 
   constructor(
-    readonly configuration: FolderConfiguration,
+    readonly payload: { configuration: FolderConfiguration; dynamicModules?: DynamicModules },
     readonly options: FolderOptions
   ) {
     const rootDir = config.rootDir;
     const appConfig = getAppConfig();
 
+    this.configuration = payload.configuration;
+    this.dynamicModules = payload.dynamicModules;
     this.progress = new Progress(69);
     this.outputDir = appConfig.outputDir;
     this.assetDirectory = path.join(rootDir, options.assetPath || "", this.configuration.assetsDir);
@@ -80,14 +84,18 @@ class Folder {
   }
 
   getDynamicFleContent(folderConfiguration: FolderChildrenConfiguration) {
-    const { name, relativeDirectory, type } = folderConfiguration;
+    const { name, relativeDirectory, type, moduleId } = folderConfiguration;
 
     try {
       const contentFilePath = path.join(this.assetDirectory, relativeDirectory);
 
+      const module = this.dynamicModules && moduleId && this.dynamicModules[moduleId];
+
       switch (type) {
         case "page":
-          new Page(name, contentFilePath);
+          if (module) {
+            new Page(name, contentFilePath, module, { assetDirectory: this.assetDirectory, dynamicData: this.dynamicData });
+          }
           break;
       }
     } catch (error) {
