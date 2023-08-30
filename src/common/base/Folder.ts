@@ -56,7 +56,7 @@ class Folder {
       new Directory(name);
     }
     if (execute) {
-      this.getDynamicFleContent(folderConfiguration);
+      this.getDynamicFleContent({ ...folderConfiguration, name });
     }
 
     if (Array.isArray(children)) {
