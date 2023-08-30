@@ -2,6 +2,8 @@
  * Root page content constructor utils
  */
 
+import FunctionalComponent from "@utils/react/FunctionalComponent";
+
 export default {
   directory: [
     {
@@ -22,7 +24,13 @@ const pageHandler = () => {
 };
 
 const layoutHandler = () => {
-  return "console.log('Hi layout');";
+  let content = "";
+
+  const layoutFunctionalComponent = new FunctionalComponent("HomeLayout");
+
+  content = content + layoutFunctionalComponent.getContent();
+  console.log({ layoutFunctionalComponent });
+  return content;
 };
 
 export const handlers = {
