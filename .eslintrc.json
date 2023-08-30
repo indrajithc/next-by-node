@@ -43,6 +43,10 @@
           [
             "@store",
             "./src/store"
+          ],
+          [
+            "@lib",
+            "./src/common/lib"
           ]
         ],
         "extensions": [
