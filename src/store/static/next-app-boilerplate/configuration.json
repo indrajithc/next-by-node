@@ -187,17 +187,9 @@
         {
           "name": "app",
           "isDirectory": true,
-          "relativeDirectory": "./app",
-          "children": [
-            {
-              "name": "page.tsx",
-              "relativeDirectory": "./page.tsx.txt"
-            },
-            {
-              "name": "layout.tsx",
-              "relativeDirectory": "./layout.tsx.txt"
-            }
-          ]
+          "relativeDirectory": "./app/page.tsx",
+          "execute": true,
+          "type": "page"
         }
       ]
     },
