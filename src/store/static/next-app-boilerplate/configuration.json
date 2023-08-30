@@ -187,7 +187,8 @@
         {
           "name": "app",
           "isDirectory": true,
-          "relativeDirectory": "./app/page.tsx",
+          "relativeDirectory": "./app/page.ts",
+          "moduleId": "PAGE_01",
           "execute": true,
           "type": "page"
         }
