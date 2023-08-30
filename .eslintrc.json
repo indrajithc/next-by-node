@@ -47,6 +47,10 @@
           [
             "@lib",
             "./src/common/lib"
+          ],
+          [
+            "@utils",
+            "./src/common/utils"
           ]
         ],
         "extensions": [
