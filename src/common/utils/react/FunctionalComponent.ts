@@ -2,12 +2,14 @@
  * FunctionalComponent class
  */
 
+import TextContent from "@base/TextContent";
+
 class FunctionalComponent {
-  content: string;
+  content: TextContent;
   typeName: string;
 
   constructor(readonly name: string) {
-    this.content = ``;
+    this.content = new TextContent("");
     this.typeName = `${name}Props`;
 
     this.addFileDoc();
@@ -15,41 +17,43 @@ class FunctionalComponent {
   }
 
   addFileDoc() {
-    let content = "";
-    content = content + `/**`;
-    content = content + "\n" + `* Functional component`;
-    content = content + "\n" + `* ${this.name}`;
-    content = content + "\n" + `*/`;
+    const content = new TextContent("");
+    content.addLine(`/**`);
+    content.addLine(`* Functional component`);
+    content.addLine(`* ${this.name}`);
+    content.addLine(`*/`);
+    content.addLine(``);
 
-    if (this.content.match(/^\/\*\*/)) {
-      this.content.replace(/^\/\*[\s\S\n]*?\*\/-/, content);
-    } else {
-      this.content = content + "\n" + this.content;
-    }
+    this.content.prepped(content.get());
+
+    // if (this.content.match(/^\/\*\*/)) {
+    //   this.content.replace(/^\/\*[\s\S\n]*?\*\/-/, content);
+    // } else {
+    //   this.content = content + "\n" + this.content;
+    // }
   }
 
   createMainFunction() {
-    let content = "";
-    content = content + `import { FC } from "react";`;
-    content = content + "\n" + ``;
-    content = content + "\n" + `interface ${this.typeName} {`;
-    content = content + "\n" + ``;
-    content = content + "\n" + `}`;
-    content = content + "\n" + ``;
-    content = content + "\n" + `const ${this.name}: FC<${this.typeName}> = () => {`;
-    content = content + "\n" + ``;
-    content = content + "\n" + `  return (`;
-    content = content + "\n" + `    <div>${this.name}</div>`;
-    content = content + "\n" + `  );`;
-    content = content + "\n" + `};`;
-    content = content + "\n" + ``;
-    content = content + "\n" + `export default HomeLayout;`;
+    const content = new TextContent(`import { FC } from "react";`);
+    content.addLine(``);
+    content.addLine(`interface ${this.typeName} {`);
+    content.addLine(``);
+    content.addLine(`}`);
+    content.addLine(``);
+    content.addLine(`const ${this.name}: FC<${this.typeName}> = () => {`);
+    content.addLine(``);
+    content.addLine(`  return (`);
+    content.addLine(`    <div>${this.name}</div>`);
+    content.addLine(`  );`);
+    content.addLine(`};`);
+    content.addLine(``);
+    content.addLine(`export default HomeLayout;`);
 
-    this.content = this.content + "\n" + content;
+    this.content.append(content.get());
   }
 
   getContent() {
-    return this.content;
+    return this.content.get();
   }
 }
 
