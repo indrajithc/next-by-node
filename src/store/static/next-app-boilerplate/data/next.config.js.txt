@@ -6,10 +6,7 @@ const { domains, deviceSizes } = config.image || {};
 
 const serverRuntimeConfig = {
   ENVIRONMENT: config.env,
-  APP_API_HOST: config.appApiHost,
-  DISABLE_CONSTRUCT_API_URL: config.disableConstructApiUrl,
-  APP_API_PROTOCOL: config.appApiProtocol,
-  SITE_NAME_SEPARATOR: config.siteNameSeparator,
+  API_HOST: config.appApiHost,
 };
 
 const nextConfig = {
